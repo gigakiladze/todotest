@@ -47,7 +47,7 @@ const getUser = (req,res, next) => {
   })
   .then((foundUser) => {
       if(foundUser){
-        res.send(200,{name:foundUser.name,token:foundUser.token})
+        res.send({name:foundUser.name,token:foundUser.token})
       }else{
           res.sendStatus(401)
       }
@@ -71,7 +71,7 @@ const deleteUser = (req,res, next) => {
             token:token
         } 
        }) 
-      res.send(202,"User Deleted")
+      res.sendStatus(202)
     }else{
         res.sendStatus(401)
     }
@@ -99,7 +99,7 @@ const updateUser = (req,res, next) => {
               token:token,
           } 
          }) 
-        res.send(200,"User Updated")
+        res.send(200)
       }else{
           res.sendStatus(401)
       }

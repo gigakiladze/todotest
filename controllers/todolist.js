@@ -42,7 +42,7 @@ const createToDo = (req,res, next) => {
                 token:token,
             }
         }) 
-        .then((alltodo) => res.send(200,{alltodo})) 
+        .then((alltodo) => res.send({alltodo})) 
         .catch((err) => console.log(err))
       }else{
           res.sendStatus(401)
@@ -67,7 +67,7 @@ const createToDo = (req,res, next) => {
                 id:id,
             }
         }) 
-        .then(() => res.send(202,"todo deleted")) 
+        .then(() => res.sendStatus(202)) 
         .catch((err) => console.log(err))
       }else{
           res.sendStatus(401)
@@ -98,7 +98,7 @@ const createToDo = (req,res, next) => {
               token:token,
           } 
          }) 
-        res.send(200,"ToDo Updated")
+        res.send(200)
       }else{
           res.sendStatus(401)
       }
